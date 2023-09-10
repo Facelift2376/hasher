@@ -6,7 +6,6 @@ import os.path
 from time import time
 
 
-
 print("\n\n")
 print("/********************** Hasher  **********************\\")
 print("\n\n")
@@ -16,7 +15,6 @@ argparse.add_argument("-c","--hash", help="Enter the hash",required=True)
 argparse.add_argument("-tp","--hash_type", help="Enter the hash_type",required=True,choices=['md5','sha1','sha256'])
 argparse.add_argument("-t","--thread", help="Enter the thread count",required=True,type=int)
 argparse.add_argument("-f","--file", help="Enter the wordlists",required=True)
-
 
 # Input
 args = argparse.parse_args()
@@ -29,7 +27,6 @@ uncracked=True
 correct_password=''
 threadsl=[]
 start_time=time()
-
 
 # function for hash cracking
 def md5_crack():
@@ -67,7 +64,6 @@ def sha256_crack():
 
 q = queue.Queue()
 
-
 # file handling
 if  os.path.isfile(args.file) :
 	with open(args.file,'r') as file:
@@ -78,8 +74,6 @@ else:
 	print("Error : ")
 	print("[-] Wrong path for wordlist")
 	exit()
-
-
 
 # hash function call
 if hash_type == 'md5':
@@ -102,9 +96,7 @@ elif hash_type == 'sha256':
 
 for t in threadsl:
 	t.join()
-
-print("");
-print("")
+print("\n\n")
 
 # Result:
 if uncracked==False:
